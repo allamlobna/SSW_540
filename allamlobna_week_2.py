@@ -16,6 +16,11 @@ STUDENT_NAMES_SINGLE = ['Yahya', 'Zara', 'Zachery', 'Faye', 'Constance', 'Umar',
 STUDENT_NAMES_STRING = 'John Smith'
 
 def sorted_names(names_list):
+    '''accepts a list of 9 student first and last names.
+    randomizes by sorting last names ascending
+    then creates groups by arranging each sorted name into
+    a group sequentially. Groups names into 3 groups of 3 '''
+
     if not isinstance(names_list, list):
         raise TypeError('The input provided is not a list.')
     elif any(not isinstance(i, str) for i in names_list):
@@ -41,4 +46,4 @@ def sorted_names(names_list):
         print('Group A: ' + str(group_a), '\nGroup B: ' + str(group_b), '\nGroup C: ' + str(group_c))
 
 if __name__ == '__main__':
-    sorted_names(STUDENT_NAMES_INT)
+    sorted_names(STUDENT_NAMES_GOOD)
