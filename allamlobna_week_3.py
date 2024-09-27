@@ -9,8 +9,13 @@ by the word "Full-time" or "Part-time" based on the
 number of courses the student is taking.'''
 
 #list of 9 unsorted students and the number of classes they are attending
-STUDENT_NAMES_CLASSES = [('Yahya Combs', 3), ('Zara Doyle', 2), ('Zachery Oconnor', 4), ('Faye Potter', 5), 
+STUDENT_NAMES_CLASSES = [('Yahya Combs', 3), ('Zara Doyle', 2), ('Zachery Oconnor', 1), ('Faye Potter', 5), 
                         ('Constance Farley', 1), ('Umar Vasquez', 6), ('Tiffany Bell', 1), 
+                        ('Hayley Chase', 2), ('Aran Mcmillan',3)]
+
+#Testing: list of 9 unsorted students and the number of classes they are attending. Some are negative,
+STUDENT_NAMES_NEGATIVE = [('Yahya Combs', 3), ('Zara Doyle', 2), ('Zachery Oconnor', -1), ('Faye Potter', 5), 
+                        ('Constance Farley', 1), ('Umar Vasquez', -6), ('Tiffany Bell', 1), 
                         ('Hayley Chase', 2), ('Aran Mcmillan',3)]
 
 def fullTime(student):
@@ -22,18 +27,23 @@ def fullTime(student):
         bool: false if Number of classes is less than 3,
                 true if Number of classes is 3 or more
     '''
-    if student[1] < 3:
+    if student [1] < 0:
+        raise ValueError()
+    elif student[1] < 3:
         return False
     else:
         return True
 
 
 if __name__ == '__main__':
-    list_students = STUDENT_NAMES_CLASSES
+    list_students = STUDENT_NAMES_NEGATIVE
     
     #go through list of student names and print their name and enrollment status
     for s in list_students:
-        if fullTime(s) is False:
-            print(s[0] + ' Part-time')
-        else:
-            print(s[0] + ' Full-time')
+        try:
+            if fullTime(s) is False:
+                print(s[0] + ' Part-time')
+            else:
+                print(s[0] + ' Full-time')
+        except:
+            print(s[0] + ' Student cannot take negative number of classes. Check number of class value.')
