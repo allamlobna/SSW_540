@@ -9,17 +9,23 @@ sorted array cannot be in the same group.  '''
 
 
 #Test Cases
+#Randomized list of 9 first and last names - good
 STUDENT_NAMES_GOOD = ['Yahya Combs', 'Zara Doyle', 'Zachery Oconnor', 'Faye Potter', 'Constance Farley', 'Umar Vasquez', 'Tiffany Bell', 'Hayley Chase', 'Aran Mcmillan']
+#Randomized list of eight first and last names - bad
 STUDENT_NAMES_EIGHT = ['Yahya Combs', 'Zara Doyle', 'Zachery Oconnor', 'Faye Potter', 'Constance Farley', 'Umar Vasquez', 'Tiffany Bell', 'Hayley Chase']
+#Randomized list of eight first and last names and an incorrect data type - bad
 STUDENT_NAMES_INT = ['Yahya Combs', 'Zara Doyle', 9, 'Faye Potter', 'Constance Farley', 'Umar Vasquez', 'Tiffany Bell', 'Hayley Chase']
+#Randomized list 9 first names - bad
 STUDENT_NAMES_SINGLE = ['Yahya', 'Zara', 'Zachery', 'Faye', 'Constance', 'Umar', 'Tiffany', 'Hayley', 'Aran']
+#One name. Not a list - bad
 STUDENT_NAMES_STRING = 'John Smith'
 
 def sorted_names(names_list):
     '''accepts a list of 9 student first and last names.
     randomizes by sorting last names ascending
     then creates groups by arranging each sorted name into
-    a group sequentially. Groups names into 3 groups of 3 '''
+    a group sequentially. Groups names into 3 groups of 3 
+    and prints each group'''
 
     if not isinstance(names_list, list):
         raise TypeError('The input provided is not a list.')
@@ -41,9 +47,9 @@ def sorted_names(names_list):
             group_b.append(names_list[i])
             i = i+1
             group_c.append(names_list[i])
-            i = i+1
-            
-        print('Group A: ' + str(group_a), '\nGroup B: ' + str(group_b), '\nGroup C: ' + str(group_c))
+            i = i+1    
+        return print('Group A: ' + str(group_a), '\nGroup B: ' + str(group_b), '\nGroup C: ' + str(group_c))
 
 if __name__ == '__main__':
+    '''Replace STUDENT_NAMES_GOOD with your list of student names'''
     sorted_names(STUDENT_NAMES_GOOD)
