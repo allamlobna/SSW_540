@@ -36,7 +36,7 @@ def fullTime(student):
 
 
 if __name__ == '__main__':
-    list_students = STUDENT_NAMES_NEGATIVE
+    list_students = STUDENT_NAMES_CLASSES
     
     #go through list of student names and print their name and enrollment status
     for s in list_students:
