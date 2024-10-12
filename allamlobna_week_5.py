@@ -2,8 +2,8 @@
 When working on security messages, we always 
 need to strip away all spaces and make all letters
 capital. By that we mean, a statement like 
-"The world population is increasing rapidly" 
-shall be converted to "THEWORLDPOPULATIONISINCREASINGRAPIDLY". 
+'The world population is increasing rapidly' 
+shall be converted to 'THEWORLDPOPULATIONISINCREASINGRAPIDLY'. 
 Hence, the cyphering function shall remove all 
 spaces and convert all letters to capital letters, 
 and also return the cyphered text and an array of 
@@ -16,10 +16,15 @@ characters, and assume the maximum number of letters
 in a message is 140 letters. '''
 
 
-TEST = "The world population is increasing rapidly"
-TEST_NS = "Theworldpopulationisincreasingrapidly"
+#Test Cases
+TEST = 'The world population is increasing rapidly'
+TEST_NS = 'Theworldpopulationisincreasingrapidly'
 
-def cypher(msg):
+def cypher(msg: str):
+    '''Cyphers the input string by removing all spaces,
+    changes all characters to upper case values, and saves
+    the indexes of all spaces that were removed in a list. 
+    Returns a string and list.'''
     msg_list = []
     cyph_msg = []
     i_space = []
@@ -29,11 +34,9 @@ def cypher(msg):
         
     for c in msg_list:
         if c  == ' ':
-            #_i = split_char.index()
             i_space.append(_i)
         else:
             cyph_msg.append(c)
-            #    print("Looks like the message didn't have any spaces!")
         _i += 1
         
     cyph_msg = ''.join(cyph_msg)
@@ -41,8 +44,11 @@ def cypher(msg):
     
     return cyph_msg, i_space
 
+
 def decypher(cyph_msg: str, i_space: list) -> str:
-    
+    '''Decyphers the input by capitalizing the first letter 
+    and lowering the rest,inserts a space for every value in 
+    the index list, and returns a string.'''
     split_cyph = []
     n = 0
     cyph_msg = cyph_msg.capitalize()
@@ -55,13 +61,15 @@ def decypher(cyph_msg: str, i_space: list) -> str:
         
     split_cyph = ''.join(split_cyph)
         
-    return print(split_cyph)
+    return split_cyph
     
 
 if __name__ == '__main__':
     
-    #message = input('Insert message to be cyphered')
-    message = TEST_NS
+    message = input('Insert message to be cyphered: ')
     cyphered_msg, cyphered_i = cypher(message)
-    print(cyphered_msg, cyphered_i)
-    decypher(cyphered_msg, cyphered_i)
+    print('Output of cyphering function: \nCyphered message: ' + cyphered_msg, 
+          '\nThe indexes of all spaces that were removed:' + str(cyphered_i))
+    decypher_msg = decypher(cyphered_msg, cyphered_i)
+    print('Output of decyphering function: \nDecyphered message: ' + decypher_msg)
+    
