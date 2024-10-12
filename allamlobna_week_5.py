@@ -61,6 +61,7 @@ def decypher(cyph_msg: str, i_space: list) -> str:
 if __name__ == '__main__':
     
     #message = input('Insert message to be cyphered')
-    message = TEST
+    message = TEST_NS
     cyphered_msg, cyphered_i = cypher(message)
+    print(cyphered_msg, cyphered_i)
     decypher(cyphered_msg, cyphered_i)
