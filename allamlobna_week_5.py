@@ -20,25 +20,47 @@ TEST = "The world population is increasing rapidly"
 TEST_NS = "Theworldpopulationisincreasingrapidly"
 
 def cypher(msg):
-    split_char = []
+    msg_list = []
+    cyph_msg = []
     i_space = []
+    _i = 0
     for c in msg:
-        split_char.append(c)
+        msg_list.append(c)
         
-    for c in split_char:
+    for c in msg_list:
         if c  == ' ':
-            try:
-                i_space.append(c)
-            
-            except:
-                print("Looks like the message didn't have any spaces!")
-                
+            #_i = split_char.index()
+            i_space.append(_i)
+        else:
+            cyph_msg.append(c)
+            #    print("Looks like the message didn't have any spaces!")
+        _i += 1
         
+    cyph_msg = ''.join(cyph_msg)
+    cyph_msg = cyph_msg.upper()          
     
-    return print(split_char), print(i_space)
+    return cyph_msg, i_space
+
+def decypher(cyph_msg: str, i_space: list) -> str:
+    
+    split_cyph = []
+    n = 0
+    cyph_msg = cyph_msg.capitalize()
+    
+    for c in cyph_msg:
+        split_cyph.append(c)
+        
+    for i in i_space:
+        split_cyph.insert(i, ' ')
+        
+    split_cyph = ''.join(split_cyph)
+        
+    return print(split_cyph)
+    
 
 if __name__ == '__main__':
     
     #message = input('Insert message to be cyphered')
     message = TEST
-    cypher(message)
+    cyphered_msg, cyphered_i = cypher(message)
+    decypher(cyphered_msg, cyphered_i)
