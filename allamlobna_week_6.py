@@ -22,5 +22,5 @@ def find_unique(string_names: list):
 
 if __name__ == '__main__':
     '''find unique strings in a pre-populated list'''
-    print('This is the original array with a list of object names \n' + str(LIST_NAMES))
+    print('This is the original list with a list of object names \n' + str(LIST_NAMES))
     print('These are the unique object names in the list \n' + str(find_unique(LIST_NAMES)))
