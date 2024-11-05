@@ -1,0 +1,8 @@
+29.35  only twenty-nine dollars and thirty-five cents
+50.01  only fifty dollars and one cent
+00.05  only zero dollars and five cents
+45.89  only forty-five dollars and eighty-nine cents
+02.04  only two dollars and four cents
+89.34  only six dollars and eight cents
+89.94  six dollars and eight cents
+100.00 only one-hundred dollars and zero cents
